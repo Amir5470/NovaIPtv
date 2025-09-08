@@ -1,0 +1,16 @@
+<resources>
+    <!-- Landing Page Body Buttons -->
+    <dimen name="landing_body_button_min_height">80dp</dimen>
+    <dimen name="landing_body_button_text_size">20sp</dimen>
+    <dimen name="landing_body_button_margin_horizontal">16dp</dimen>
+    <dimen name="landing_body_button_margin_vertical">16dp</dimen>
+
+    <!-- Landing Page Footer Buttons -->
+    <dimen name="landing_footer_button_height">48dp</dimen>
+    <dimen name="landing_footer_button_text_size">14sp</dimen>
+    <dimen name="landing_footer_button_margin_horizontal">8dp</dimen>
+
+    <!-- "Fake" M3 Dimensions to satisfy linter for M2 project -->
+    <dimen name="m3_btn_min_height">48dp</dimen>
+    <dimen name="m3_btn_min_width">64dp</dimen>
+</resources>

@@ -38,6 +38,12 @@ android {
     }
 }
 
+repositories {
+    google()
+    mavenCentral()
+    jcenter() // Optional
+}
+
 dependencies {
 
     implementation(libs.androidx.core.ktx)

@@ -140,14 +140,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         tools:visibility="visible"> <!-- tools:visibility for preview in Android Studio. Ensure overlay is on top -->
 
-        <com.github.mmin18.widget.RealtimeBlurView
-            android:id="@+id/blur_view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:contentDescription="@null"
-            app:realtimeBlurRadius="20dp"
-            app:realtimeOverlayColor="#80000000" />
-
         <!-- Your Actual Overlay Content Here -->
         <FrameLayout
             android:id="@+id/overlay_content_area"

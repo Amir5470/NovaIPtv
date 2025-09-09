@@ -93,6 +93,14 @@ class MainFragment : BrowseSupportFragment() {
         val rowsAdapter = ArrayObjectAdapter(ListRowPresenter())
         val cardPresenter = CardPresenter()
 
+        // --- Add Favorites Row at the top ---
+    val favoritesHeader = HeaderItem(-1, "Favorites")
+    val favoritesAdapter = ArrayObjectAdapter(cardPresenter)
+    // TODO: Load user's favorite items here
+    favoritesAdapter.add(list[0]) // Example: add first item as favorite
+    rowsAdapter.add(ListRow(favoritesHeader, favoritesAdapter))
+    // --- End Favorites Row ---
+
         for (i in 0 until NUM_ROWS) {
             if (i != 0) {
                 Collections.shuffle(list)

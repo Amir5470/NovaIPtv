@@ -65,7 +65,7 @@ Our mission is to:
 
 ## Installation
 
-1. Go to the Play Store on the Device you want to install the app on. Then search for Nova IPtv. Install and Bon appetit!
+Go to the Play Store on the Device you want to install the app on. Then search for NovaIPtv. Install and Bon appetit!
 
 
 Browse available content or search for something specific.

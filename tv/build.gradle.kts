@@ -49,6 +49,5 @@ dependencies {
     implementation(libs.androidx.appcompat) // For attributes like colorPrimary, actionBarSize and AppCompat themes
     implementation(libs.androidx.constraintlayout) // For ConstraintLayout attributes
     implementation(libs.material) // Material Components often provides enhanced versions of these and is generally recommended
-    implementation("com.github.mmin18:RealtimeBlurView:1.2.1") // Corrected RealtimeBlurView library coordinates
 
 }

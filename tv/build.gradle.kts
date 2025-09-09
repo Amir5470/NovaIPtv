@@ -38,11 +38,6 @@ android {
     }
 }
 
-repositories {
-    google()
-    mavenCentral()
-    jcenter() // Optional
-}
 
 dependencies {
 

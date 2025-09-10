@@ -1,122 +1,130 @@
 package com.project.novaiptv
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button // Ensure this is imported if you do explicit 'is Button' checks, though not strictly needed if only using binding.
 import androidx.appcompat.app.AppCompatActivity
-import com.project.novaiptv.databinding.LandingPageBinding // Assuming ViewBinding
-import android.widget.Button
+import com.project.novaiptv.databinding.LandingPageBinding
 
 class LandingActivity : AppCompatActivity() {
 
     private lateinit var binding: LandingPageBinding
+    private var lastFocusedViewBeforeOverlay: View? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = LandingPageBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Example: Setup a button to show the overlay
-        // Replace this with your actual trigger for showing the overlay
-        binding.footerButtonRight2Landing.setOnClickListener { // Assuming settings button shows overlay
+        Log.d("FocusDebug", "LandingActivity onCreate")
+
+        binding.footerButtonRight2Landing.setOnClickListener {
+            Log.d("FocusDebug", "Settings button (footerButtonRight2Landing) clicked")
             showOverlay()
         }
 
         binding.overlayCloseButton.setOnClickListener {
+            Log.d("FocusDebug", "Overlay close button clicked")
             hideOverlay()
         }
 
-        // Initially hide the overlay if it's not meant to be shown at start
+        // Initially hide the overlay
         binding.overlayContainer.visibility = View.GONE
     }
 
     private fun showOverlay() {
+        Log.d("FocusDebug", "---- SHOWING OVERLAY ----")
+
+        // Store the currently focused view if it's part of the main layout
+        val currentFocus = currentFocus
+        if (currentFocus != null && currentFocus.id != View.NO_ID) {
+            var parent = currentFocus.parent as? View
+            var isDescendantOfMain = false
+            while (parent != null) {
+                if (parent.id == binding.mainConstraintLayout.id) {
+                    isDescendantOfMain = true
+                    break
+                }
+                if (parent.id == binding.overlayContainer.id) {
+                    isDescendantOfMain = false // Don't save focus if it's already in overlay
+                    break
+                }
+                parent = parent.parent as? View
+            }
+            if (isDescendantOfMain) {
+                lastFocusedViewBeforeOverlay = currentFocus
+                try {
+                    Log.d("FocusDebug", "Saved focus: ${resources.getResourceEntryName(lastFocusedViewBeforeOverlay!!.id)}")
+                } catch (e: Exception) {
+                    Log.d("FocusDebug", "Saved focus on a view with no resource ID name.")
+                }
+            } else {
+                 lastFocusedViewBeforeOverlay = null // Clear if not relevant
+            }
+        } else {
+            lastFocusedViewBeforeOverlay = null // Clear if no current focus
+        }
+
+
+        // Disable focusability for all interactive elements behind the overlay
+        setFocusabilityForMainContent(false)
+
         binding.overlayContainer.visibility = View.VISIBLE
-        // Request focus on the element you want to be selected first in the overlay
-        binding.overlayCloseButton.requestFocus()
+        // Make the overlay container itself focusable to trap focus if needed,
+        // although focus should go directly to its children.
+        binding.overlayContainer.isFocusable = true
+        binding.overlayContainer.isEnabled = true
 
-        // Disable focus for all children of the main layout behind the overlay
-        setChildrenFocusable(binding.mainConstraintLayout, false, binding.overlayContainer)
+        // Explicitly request focus on the desired element within the overlay
+        val overlayFocusSuccess = binding.overlayCloseButton.requestFocus()
+        Log.d("FocusDebug", "Overlay visible. Requested focus on overlay_close_button. Success: $overlayFocusSuccess")
+        if (!overlayFocusSuccess) {
+            Log.e("FocusDebug", "Failed to focus on overlay_close_button!")
+        }
     }
 
-    // In LandingActivity.kt
+    private fun hideOverlay() {
+        Log.d("FocusDebug", "---- HIDING OVERLAY ----")
+        binding.overlayContainer.visibility = View.GONE
+        // Make overlay container non-focusable when hidden
+        binding.overlayContainer.isFocusable = false
+        binding.overlayContainer.isEnabled = false
 
-private fun hideOverlay() {
-    binding.overlayContainer.visibility = View.GONE
-    Log.d("FocusDebug", "---- HIDING OVERLAY ----")
+        // Restore focusability for the main layout elements
+        setFocusabilityForMainContent(true)
 
-    // --- Aggressively Reset Focus Properties for Main Layout and Body ---
-    // 1. Make sure main layout allows descendant focus
-    binding.mainConstraintLayout.descendantFocusability = ViewGroup.FOCUS_AFTER_DESCENDANTS
-    Log.d("FocusDebug", "main_constraint_layout.descendantFocusability = FOCUS_AFTER_DESCENDANTS")
-
-    // 2. Make sure body container allows descendant focus and is not focusable itself
-    binding.bodyContainerLanding.descendantFocusability = ViewGroup.FOCUS_AFTER_DESCENDANTS
-    binding.bodyContainerLanding.isFocusable = false
-    binding.bodyContainerLanding.isFocusableInTouchMode = false
-    binding.bodyContainerLanding.isEnabled = true // Ensure container is enabled
-    Log.d("FocusDebug", "body_container_landing.descendantFocusability = FOCUS_AFTER_DESCENDANTS, isFocusable=false, isEnabled=true")
-
-    // 3. Explicitly enable and make focusable the body buttons
-    val bodyButtons = listOf(binding.largeButton1Landing, binding.largeButton2Landing, binding.largeButton3Landing)
-    bodyButtons.forEach { button ->
-        button.isFocusable = true
-        button.isFocusableInTouchMode = true // Important for some scenarios
-        button.isEnabled = true
-        button.visibility = View.VISIBLE // Ensure they are visible
-        val buttonIdName = try { resources.getResourceEntryName(button.id) } catch (e: Exception) { "N/A" }
-        Log.d("FocusDebug", "Button $buttonIdName: isFocusable=${button.isFocusable}, isEnabled=${button.isEnabled}, visibility=${button.visibility}")
+        // Restore focus to the last focused view or a default one
+        if (lastFocusedViewBeforeOverlay != null &&
+            lastFocusedViewBeforeOverlay!!.isFocusable &&
+            lastFocusedViewBeforeOverlay!!.isEnabled && // also check if it's enabled
+            lastFocusedViewBeforeOverlay!!.isShown // and actually visible on screen
+        ) {
+            try {
+                Log.d("FocusDebug", "Attempting to restore focus to: ${resources.getResourceEntryName(lastFocusedViewBeforeOverlay!!.id)}")
+            } catch (e: Exception) {
+                Log.d("FocusDebug", "Attempting to restore focus to a view with no resource ID name.")
+            }
+            val focusRestored = lastFocusedViewBeforeOverlay!!.requestFocus()
+            Log.d("FocusDebug", "Focus restoration to lastFocusedView. Success: $focusRestored")
+            if (!focusRestored) {
+                Log.d("FocusDebug", "Could not restore focus to lastFocusedView. Falling back.")
+                fallbackFocus()
+            }
+        } else {
+            if (lastFocusedViewBeforeOverlay == null) {
+                Log.d("FocusDebug", "lastFocusedViewBeforeOverlay is null. Falling back.")
+            } else {
+                 try {
+                     Log.d("FocusDebug", "lastFocusedViewBeforeOverlay (${resources.getResourceEntryName(lastFocusedViewBeforeOverlay!!.id)}) is not focusable/enabled/shown. Falling back. IsFocusable: ${lastFocusedViewBeforeOverlay!!.isFocusable}, IsEnabled: ${lastFocusedViewBeforeOverlay!!.isEnabled}, IsShown: ${lastFocusedViewBeforeOverlay!!.isShown}")
+                 } catch (e: Exception) {
+                     Log.d("FocusDebug", "lastFocusedViewBeforeOverlay (no ID) is not focusable/enabled/shown. Falling back. IsFocusable: ${lastFocusedViewBeforeOverlay!!.isFocusable}, IsEnabled: ${lastFocusedViewBeforeOverlay!!.isEnabled}, IsShown: ${lastFocusedViewBeforeOverlay!!.isShown}")
+                 }
+            }
+            fallbackFocus()
+        }
+        lastFocusedViewBeforeOverlay = null // Clear after attempting to restore
     }
 
-    // 4. Also re-enable footer buttons explicitly (though they seem to work)
-    val footerButtons = listOf(binding.footerButtonLeftLanding, binding.footerButtonRight1Landing, binding.footerButtonRight2Landing)
-    footerButtons.forEach { button ->
-        button.isFocusable = true
-        button.isFocusableInTouchMode = true
-        button.isEnabled = true
-        val buttonIdName = try { resources.getResourceEntryName(button.id) } catch (e: Exception) { "N/A" }
-        Log.d("FocusDebug", "Footer Button $buttonIdName: isFocusable=${button.isFocusable}, isEnabled=${button.isEnabled}")
-    }
-    
-    // 5. Restore focus
-    // Try focusing the first large button directly.
-    val requestFocusSuccess = binding.largeButton1Landing.requestApplyInsets() // FOCUS_UP) // Or just .requestFocus()
-    Log.d("FocusDebug", "Requested focus on large_button_1_landing. Success: $requestFocusSuccess")
-    if (!requestFocusSuccess) {
-        Log.d("FocusDebug", "Still couldn't focus large_button_1_landing. Trying a footer button as fallback.")
-        binding.footerButtonRight2Landing.requestFocus() // Fallback to a known working button
-    }
-
-    lastFocusedViewBeforeOverlay = null
-}
-
-// Keep showOverlay similar, ensuring it disables things
-private fun showOverlay() {
-    Log.d("FocusDebug", "---- SHOWING OVERLAY ----")
-    // Consider blocking focus on the main layout
-    // binding.mainConstraintLayout.descendantFocusability = ViewGroup.FOCUS_BLOCK_DESCENDANTS
-
-    // Disable body buttons explicitly
-    val bodyButtons = listOf(binding.largeButton1Landing, binding.largeButton2Landing, binding.largeButton3Landing)
-    bodyButtons.forEach { button ->
-        button.isFocusable = false
-        button.isEnabled = false
-    }
-    // Disable footer buttons explicitly
-    val footerButtons = listOf(binding.footerButtonLeftLanding, binding.footerButtonRight1Landing, binding.footerButtonRight2Landing)
-    footerButtons.forEach { button ->
-        button.isFocusable = false
-        button.isEnabled = false
-    }
-
-    binding.overlayContainer.visibility = View.VISIBLE
-    binding.overlayContainer.isFocusable = true // Ensure overlay itself can be focused initially
-    binding.overlayContainer.isEnabled = true
-    binding.overlayCloseButton.requestFocus()
-    Log.d("FocusDebug", "Overlay visible. Requested focus on overlay_close_button.")
-}
-
-// Remove setChildrenFocusable for now to simplify, as we are doing it explicitly above
-// override fun onBackPressed()...
-// onCreate()...
-
+    /**

@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import com.project.novaiptv.databinding.LandingPageBinding // Assuming ViewBinding
+import android.widget.button
 
 class LandingActivity : AppCompatActivity() {
 

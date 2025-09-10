@@ -28,8 +28,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="Nova IPtv"
-            android:textColor="@android:color/white"   تعدیل: Changed to white for better visibility on a dark toolbar
-            android:textSize="20sp" /> تعدیل: Added textSize for better appearance
+            android:textColor="@android:color/white"
+            android:textSize="20sp" />
     </androidx.appcompat.widget.Toolbar>
 
     <!-- Body with 3 Large Buttons -->

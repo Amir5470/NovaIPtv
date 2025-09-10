@@ -1,6 +1,6 @@
 # NovaIPTV
 
-NovaIPTV is a web-based IPTV-style platform that lets you log in and enjoy a customizable streaming experience. It combines live content, trailers, sports integration, and personalization features all in one place.
+NovaIPTV is an IPTV-style platform that lets you log in and enjoy a customizable streaming experience. It combines live content, trailers, sports integration, and personalization features all in one place.
 
 ---
 
@@ -20,9 +20,9 @@ NovaIPTV is a web-based IPTV-style platform that lets you log in and enjoy a cus
 
 NovaIPTV is designed to recreate the IPTV experience by bringing together not only live and on-demand content, but also enhanced personalization, sports integration, and interactivity. Unlike traditional IPTV platforms that stop at just providing a grid of channels or a simple playback screen, NovaIPTV introduces a layer of immersion and customization tailored to each user’s preferences.  
 
-At its core, NovaIPTV provides users with the ability to log in securely and access content seamlessly from any Android . Whether you’re looking to catch up on your favorite shows, explore the latest movie trailers, or keep an eye on live sports events, NovaIPTV centralizes all of this in a clean, intuitive interface.  
+At its core, NovaIPTV enables users to log in securely and access content seamlessly from any Android device. Whether you’re looking to catch up on your favorite shows, explore the latest movie trailers, or keep an eye on live sports events, NovaIPTV centralizes all of this in a clean, intuitive interface.  
 
-One of the standout features is **sports integration**. NovaIPTV allows you to pick your favorite teams across various sports and goes beyond basic score updates by adding dynamic feedback to your viewing experience. For example, if your chosen team wins, the platform celebrates with visual or audio effects to amplify the excitement. On the other hand, if your team loses, the interface reflects that with corresponding animations or sounds, creating a fun, game-like atmosphere that connects the platform directly to real-world results.  
+One of the standout features is **sports integration**. NovaIPTV allows you to pick your favorite teams across various sports and goes beyond basic score updates by adding dynamic feedback to your viewing experience. For example, if your chosen team wins, the platform celebrates with visual or audio effects to amplify the excitement. On the other hand, if your team loses, the interface reflects this with corresponding animations or sounds, creating a fun, game-like atmosphere that directly connects the platform to real-world results.  
 
 The **Favorites Page** ensures that your must-watch titles are always within reach, helping you save time browsing. In addition, **trailers** are built into the experience, so you don’t need to leave the platform to preview upcoming movies or shows. NovaIPTV also supports **custom themes**, giving users complete freedom to personalize the look and feel of the interface — whether you prefer a sleek dark mode, bright playful colors, or something that reflects your team’s branding.  
 
@@ -41,7 +41,7 @@ We envision NovaIPTV becoming more than just a platform for watching; we want it
 ### Mission
 
 Our mission is to:  
-- Provide a **seamless, user-friendly IPTV experience** that is accessible on both desktop and mobile browsers.  
+- Provide a **seamless, user-friendly IPTV experience** that is accessible on Android devices.  
 - Enhance content discovery with integrated **trailers** and **favorites** to reduce the time spent searching and increase time spent enjoying.  
 - Bring **sports interactivity** to the forefront by embedding scores, updates, and reactions directly into the platform.  
 - Empower users with **custom themes** to make the platform feel personal and unique to their style.  
@@ -65,8 +65,9 @@ Our mission is to:
 
 ## Installation
 
-Go to the Play Store on the Device you want to install the app on. Then search for NovaIPtv. Install and Bon appetit!
-
+1. Go to the Play Store on the Device you want to install the app on.
+2. Then search for NovaIPtv.
+3. Install and Bon appétit!
 
 Browse available content or search for something specific.
 
@@ -91,9 +92,9 @@ Backend / Logic: Kotlin
 
 Build Tools: Gradle
 
-Supported Platforms: Any Android Device, But there will be avaliablility for other 
+Supported Platforms: Any Android Device, but there will be availability for other Platforms later.
 
 Notes
 NovaIPTV is optimized for Android Devices.
 
-Make sure you’re connected to a stable internet connection for best performance
+Make sure you’re connected to a stable internet connection for the best performance

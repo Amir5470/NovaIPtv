@@ -69,7 +69,7 @@ class LandingActivity : AppCompatActivity() {
 
 
         // Disable focusability for all interactive elements behind the overlay
-        setFocusabilityForMainContent(false)
+        setFocusabilityForMainContent(binding.mainConstraintLayout, false) // Pass the root of your main content
 
         binding.overlayContainer.visibility = View.VISIBLE
         // Make the overlay container itself focusable to trap focus if needed,
@@ -93,7 +93,7 @@ class LandingActivity : AppCompatActivity() {
         binding.overlayContainer.isEnabled = false
 
         // Restore focusability for the main layout elements
-        setFocusabilityForMainContent(true)
+        setFocusabilityForMainContent(binding.mainConstraintLayout, true) // Pass the root of your main content
 
         // Restore focus to the last focused view or a default one
         if (lastFocusedViewBeforeOverlay != null &&
@@ -128,3 +128,41 @@ class LandingActivity : AppCompatActivity() {
     }
 
     /**
+     * Recursively sets the focusability of all focusable views within a given ViewGroup.
+     *
+     * @param viewGroup The ViewGroup to traverse.
+     * @param focusable True to make views focusable, false otherwise.
+     */
+    private fun setFocusabilityForMainContent(viewGroup: ViewGroup, focusable: Boolean) {
+        for (i in 0 until viewGroup.childCount) {
+            val child = viewGroup.getChildAt(i)
+            // Only change focusability if it's explicitly focusable in the layout
+            // or if it's a type that is typically focusable (e.g., Button).
+            // You might want to refine this condition based on your specific UI components.
+            if (child.isFocusableByDefault || child is Button) {
+                 Log.d("FocusDebug", "Setting focusable $focusable for ${try {resources.getResourceEntryName(child.id)} catch (e:Exception) {"NO_ID"}}")
+                child.isFocusable = focusable
+                child.isEnabled = focusable // Often you want to disable them too
+            }
+            if (child is ViewGroup) {
+                // If the child is itself a ViewGroup (and not the overlay container), recurse
+                if (child.id != binding.overlayContainer.id) {
+                    setFocusabilityForMainContent(child, focusable)
+                }
+            }
+        }
+        // Also set focusability for the root main content view itself if needed.
+        // viewGroup.isFocusable = focusable
+    }
+
+    private fun fallbackFocus() {
+        Log.d("FocusDebug", "Fallback focus: attempting to focus on footerButtonRight2Landing")
+        // Attempt to focus a known default element in your main layout
+        val fallbackSuccess = binding.footerButtonRight2Landing.requestFocus()
+        if (!fallbackSuccess) {
+            Log.e("FocusDebug", "Fallback focus on footerButtonRight2Landing FAILED.")
+            // As a last resort, clear focus from the current view if any
+            currentFocus?.clearFocus()
+        }
+    }
+}

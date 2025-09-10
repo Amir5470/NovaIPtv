@@ -1,4 +1,4 @@
-# <h1> ![Nova IPtv](https://img.shields.io/badge/Nova%20IPtv?style=flat&color=blue) </h1>
+# <h1> [Nova IPtv](https://img.shields.io/badge/Nova%20IPtv?style=flat&color=blue) </h1>
 <div>
 <h4>Only avaliable on Android </h4> <img width=auto height="20" alt="image" src="https://github.com/user-attachments/assets/739ad5c7-250b-4d11-b723-4aa083306150" />
 </div>

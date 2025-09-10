@@ -4,7 +4,7 @@
 </div>
 (Other platforms coming out later on) 
 
-<h2 color="blue" >Nova IPtv</h2> is an IPTV-style platform that lets you log in and enjoy a customizable streaming experience. It combines live content, trailers, sports integration, and personalization features all in one place.
+<p color="blue" >Nova IPtv</p> is an IPTV-style platform that lets you log in and enjoy a customizable streaming experience. It combines live content, trailers, sports integration, and personalization features all in one place.
 
 ---
 
@@ -22,23 +22,23 @@
 
 ## About
 
-<h2 color="blue" >Nova IPtv</h2> is designed to recreate the IPTV experience by bringing together not only live and on-demand content, but also enhanced personalization, sports integration, and interactivity. Unlike traditional IPTV platforms that stop at just providing a grid of channels or a simple playback screen, <h2 color="blue" >Nova IPtv</h2> introduces a layer of immersion and customization tailored to each user’s preferences.  
+<p color="blue" >Nova IPtv</p> is designed to recreate the IPTV experience by bringing together not only live and on-demand content, but also enhanced personalization, sports integration, and interactivity. Unlike traditional IPTV platforms that stop at just providing a grid of channels or a simple playback screen, <p color="blue" >Nova IPtv</p> introduces a layer of immersion and customization tailored to each user’s preferences.  
 
-At its core, <h2 color="blue" >Nova IPtv</h2> enables users to log in securely and access content seamlessly from any Android device. Whether you’re looking to catch up on your favorite shows, explore the latest movie trailers, or keep an eye on live sports events, <h2 color="blue" >Nova IPtv</h2> centralizes all of this in a clean, intuitive interface.  
+At its core, <p color="blue" >Nova IPtv</p> enables users to log in securely and access content seamlessly from any Android device. Whether you’re looking to catch up on your favorite shows, explore the latest movie trailers, or keep an eye on live sports events, <p color="blue" >Nova IPtv</p> centralizes all of this in a clean, intuitive interface.  
 
-One of the standout features is **sports integration**. <h2 color="blue" >Nova IPtv</h2> allows you to pick your favorite teams across various sports and goes beyond basic score updates by adding dynamic feedback to your viewing experience. For example, if your chosen team wins, the platform celebrates with visual or audio effects to amplify the excitement. On the other hand, if your team loses, the interface reflects this with corresponding animations or sounds, creating a fun, game-like atmosphere that directly connects the platform to real-world results.  
+One of the standout features is **sports integration**. <p color="blue" >Nova IPtv</p> allows you to pick your favorite teams across various sports and goes beyond basic score updates by adding dynamic feedback to your viewing experience. For example, if your chosen team wins, the platform celebrates with visual or audio effects to amplify the excitement. On the other hand, if your team loses, the interface reflects this with corresponding animations or sounds, creating a fun, game-like atmosphere that directly connects the platform to real-world results.  
 
-The **Favorites Page** ensures that your must-watch titles are always within reach, helping you save time browsing. In addition, **trailers** are built into the experience, so you don’t need to leave the platform to preview upcoming movies or shows. <h2 color="blue" >Nova IPtv</h2> also supports **custom themes**, giving users complete freedom to personalize the look and feel of the interface — whether you prefer a sleek dark mode, bright playful colors, or something that reflects your team’s branding.  
+The **Favorites Page** ensures that your must-watch titles are always within reach, helping you save time browsing. In addition, **trailers** are built into the experience, so you don’t need to leave the platform to preview upcoming movies or shows. <p color="blue" >Nova IPtv</p> also supports **custom themes**, giving users complete freedom to personalize the look and feel of the interface — whether you prefer a sleek dark mode, bright playful colors, or something that reflects your team’s branding.  
 
-By combining entertainment with interactivity, <h2 color="blue" >Nova IPtv</h2> is not just about watching content — it’s about **engaging with it**. It adapts to your preferences, celebrates your wins, and makes the viewing experience feel alive.  
+By combining entertainment with interactivity, <p color="blue" >Nova IPtv</p> is not just about watching content — it’s about **engaging with it**. It adapts to your preferences, celebrates your wins, and makes the viewing experience feel alive.  
 
 ---
 
 ### Vision
 
-Our vision is to redefine what IPTV can be by creating a platform that doesn’t just deliver streams, but delivers **experiences**. <h2 color="blue" >Nova IPtv</h2> aims to merge entertainment with personalization, giving users a space where content feels dynamic, engaging, and emotionally connected to the things they care about most — whether it’s their favorite shows, their personal style, or the outcomes of their favorite sports teams.  
+Our vision is to redefine what IPTV can be by creating a platform that doesn’t just deliver streams, but delivers **experiences**. <p color="blue" >Nova IPtv</p> aims to merge entertainment with personalization, giving users a space where content feels dynamic, engaging, and emotionally connected to the things they care about most — whether it’s their favorite shows, their personal style, or the outcomes of their favorite sports teams.  
 
-We envision <h2 color="blue" >Nova IPtv</h2> becoming more than just a platform for watching; we want it to be a **companion to your entertainment lifestyle**, evolving alongside the user and reflecting the energy of real-world events in real time.  
+We envision <p color="blue" >Nova IPtv</p> becoming more than just a platform for watching; we want it to be a **companion to your entertainment lifestyle**, evolving alongside the user and reflecting the energy of real-world events in real time.  
 
 ---
 
@@ -50,7 +50,7 @@ Our mission is to:
 - Bring **sports interactivity** to the forefront by embedding scores, updates, and reactions directly into the platform.  
 - Empower users with **custom themes** to make the platform feel personal and unique to their style.  
 - Enrich entertainment with **real-world reviews, smart controls, and immersive idle-time visuals**.  
-- Build <h2 color="blue" >Nova IPtv</h2> with a **modern, scalable architecture** using Kotlin and XML, ensuring long-term reliability, flexibility, and room for future growth.  
+- Build <p color="blue" >Nova IPtv</p> with a **modern, scalable architecture** using Kotlin and XML, ensuring long-term reliability, flexibility, and room for future growth.  
 
 ---
 
@@ -70,7 +70,7 @@ Our mission is to:
 ## Installation
 
 1. Go to the Play Store on the Device you want to install the app on.
-2. Then search for <h2 color="blue" >Nova IPtv</h2>.
+2. Then search for <p color="blue" >Nova IPtv</p>.
 3. Install and Bon appétit!
 
 Browse available content or search for something specific.
@@ -99,6 +99,6 @@ Build Tools: Gradle
 Supported Platforms: Any Android Device, but there will be availability for other Platforms later.
 
 Notes
-<h2 color="blue" >Nova IPtv</h2> is optimized for Android Devices.
+<p color="blue" >Nova IPtv</p> is optimized for Android Devices.
 
 Make sure you’re connected to a stable internet connection for the best performance

@@ -54,7 +54,9 @@
             android:minHeight="@dimen/m3_btn_min_height"
             android:text="@string/landing_live_tv_button"
             android:textSize="@dimen/landing_body_button_text_size"
-            app:cornerRadius="16dp" />
+            app:cornerRadius="16dp"
+            app:strokeColor="#000000"
+            app:strokeWidth="2dp" />
 
         <Button
             android:id="@+id/large_button_2_landing"
@@ -67,7 +69,9 @@
             android:minHeight="@dimen/m3_btn_min_height"
             android:text="@string/landing_movies_button"
             android:textSize="@dimen/landing_body_button_text_size"
-            app:cornerRadius="16dp" />
+            app:cornerRadius="16dp"
+            app:strokeColor="#000000"
+            app:strokeWidth="2dp"  />
 
         <Button
             android:id="@+id/large_button_3_landing"
@@ -79,7 +83,10 @@
             android:minHeight="@dimen/m3_btn_min_height"
             android:text="@string/landing_series_button"
             android:textSize="@dimen/landing_body_button_text_size"
-            app:cornerRadius="16dp" />
+            app:cornerRadius="16dp"
+            app:strokeColor="#000000"
+            app:strokeWidth="2dp" />
+
     </LinearLayout>
 
     <!-- Footer with buttons -->
@@ -91,7 +98,7 @@
         android:background="?attr/colorSurface"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent">
 
         <Button
             android:id="@+id/footer_button_left_landing"
@@ -114,7 +121,7 @@
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" />
+            app:layout_constraintBottom_toBottomOf="parent">
 
             <Button
                 android:id="@+id/footer_button_right_1_landing"

@@ -28,4 +28,6 @@
     <!-- Overlay -->
     <string name="overlay_sample_text">This is an Overlay!</string>
     <string name="overlay_close_button_text">Close</string>
+        <!-- Other strings -->
+        <string name="landing_page_title">Your Landing Page Title</string>
 </resources>

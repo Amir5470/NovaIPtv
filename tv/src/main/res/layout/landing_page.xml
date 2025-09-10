@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LandingActivity">
+    tools:context=".LandingActivity" />
 
     <!-- Header with Navbar -->
     <androidx.appcompat.widget.Toolbar
@@ -23,6 +23,7 @@
     android:id="@+id/titleTextView"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:layout_gravity="center"
     android:text="Nova IPtv" />
 
     <!-- Body with 3 Large Buttons -->

@@ -136,10 +136,10 @@ class LandingActivity : AppCompatActivity() {
     private fun setFocusabilityForMainContent(viewGroup: ViewGroup, focusable: Boolean) {
         for (i in 0 until viewGroup.childCount) {
             val child = viewGroup.getChildAt(i)
-            // Only change focusability if it's explicitly focusable in the layout
+            // Only change focusability if it's currently focusable in the layout
             // or if it's a type that is typically focusable (e.g., Button).
             // You might want to refine this condition based on your specific UI components.
-            if (child.isFocusableByDefault || child is Button) {
+            if (child.isFocusable || child is Button) { // Changed here
                  Log.d("FocusDebug", "Setting focusable $focusable for ${try {resources.getResourceEntryName(child.id)} catch (e:Exception) {"NO_ID"}}")
                 child.isFocusable = focusable
                 child.isEnabled = focusable // Often you want to disable them too

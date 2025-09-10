@@ -39,14 +39,22 @@ class LandingActivity : AppCompatActivity() {
     }
 
     private fun hideOverlay() {
-        binding.overlayContainer.visibility = View.GONE
+    binding.overlayContainer.visibility = View.GONE
 
-        // Re-enable focus for all children of the main layout
-        setChildrenFocusable(binding.mainConstraintLayout, true, binding.overlayContainer)
+    // Re-enable focus and enabled state for all children of the main layout
+    setChildrenFocusable(binding.mainConstraintLayout, true, binding.overlayContainer)
 
-        // Optional: Clear focus from overlay or move it back to a sensible default
-        // binding.mainConstraintLayout.requestFocus() // Or a specific element
-    }
+    // --- Key change: Explicitly request focus on a known element in the main layout ---
+    // For example, let's set focus back to the settings button that opened the overlay.
+    // Replace 'binding.footerButtonRight2Landing' with the element
+    // you want to receive focus after the overlay closes.
+    binding.footerButtonRight2Landing.requestFocus()
+    // Alternatively, if you want a more general approach:
+    // binding.mainConstraintLayout.requestFocus()
+    // This will try to find the first focusable element in the main layout.
+    // However, explicitly setting it to a known button is often more reliable for TV.
+}
+
 
     /**
      * Recursively sets the focusable and enabled state for all child views of a ViewGroup,

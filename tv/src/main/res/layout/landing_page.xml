@@ -53,7 +53,8 @@
             android:minWidth="@dimen/m3_btn_min_width"
             android:minHeight="@dimen/m3_btn_min_height"
             android:text="@string/landing_live_tv_button"
-            android:textSize="@dimen/landing_body_button_text_size" />
+            android:textSize="@dimen/landing_body_button_text_size"
+            app:cornerRadius="16dp" />
 
         <Button
             android:id="@+id/large_button_2_landing"
@@ -65,7 +66,8 @@
             android:minWidth="@dimen/m3_btn_min_width"
             android:minHeight="@dimen/m3_btn_min_height"
             android:text="@string/landing_movies_button"
-            android:textSize="@dimen/landing_body_button_text_size" />
+            android:textSize="@dimen/landing_body_button_text_size"
+            app:cornerRadius="16dp" />
 
         <Button
             android:id="@+id/large_button_3_landing"
@@ -76,7 +78,8 @@
             android:minWidth="@dimen/m3_btn_min_width"
             android:minHeight="@dimen/m3_btn_min_height"
             android:text="@string/landing_series_button"
-            android:textSize="@dimen/landing_body_button_text_size" />
+            android:textSize="@dimen/landing_body_button_text_size"
+            app:cornerRadius="16dp" />
     </LinearLayout>
 
     <!-- Footer with buttons -->
@@ -145,9 +148,9 @@
         android:layout_height="0dp"
         android:visibility="gone"
         android:elevation="10dp"
-        android:background="#80000000" <!-- Semi-transparent background -->
-        android:clickable="true" <!-- Consumes clicks, preventing them from reaching views below -->
-        android:focusable="true" <!-- Important for trapping focus -->
+        android:background="#80000000"
+        android:clickable="true" 
+        android:focusable="true" 
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"

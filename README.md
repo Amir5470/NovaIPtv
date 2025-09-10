@@ -4,7 +4,7 @@
 </div>
 (Other platforms coming out later on) 
 
-<p color="blue" >Nova IPtv</p> is an IPTV-style platform that lets you log in and enjoy a customizable streaming experience. It combines live content, trailers, sports integration, and personalization features all in one place.
+<p color="blue" >Nova IPtv</p> <p>is an IPTV-style platform that lets you log in and enjoy a customizable streaming experience. It combines live content, trailers, sports integration, and personalization features all in one place.</p>
 
 ---
 

@@ -48,32 +48,32 @@
         <Button
             android:id="@+id/large_button_1_landing"
             style="@style/Widget.MaterialComponents.Button"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:layout_height="200dp"
+            android:layout_marginEnd="@dimen/landing_body_button_margin_horizontal"
             android:layout_weight="1"
             android:minWidth="@dimen/m3_btn_min_width"
             android:minHeight="@dimen/m3_btn_min_height"
             android:text="@string/landing_live_tv_button"
-            android:textSize="@dimen/landing_body_button_text_size"
-            android:layout_marginEnd="@dimen/landing_body_button_margin_horizontal" />
+            android:textSize="@dimen/landing_body_button_text_size" />
 
         <Button
             android:id="@+id/large_button_2_landing"
             style="@style/Widget.MaterialComponents.Button"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:layout_height="200dp"
+            android:layout_marginEnd="@dimen/landing_body_button_margin_horizontal"
             android:layout_weight="1"
             android:minWidth="@dimen/m3_btn_min_width"
             android:minHeight="@dimen/m3_btn_min_height"
             android:text="@string/landing_movies_button"
-            android:textSize="@dimen/landing_body_button_text_size"
-            android:layout_marginEnd="@dimen/landing_body_button_margin_horizontal" />
+            android:textSize="@dimen/landing_body_button_text_size" />
 
         <Button
             android:id="@+id/large_button_3_landing"
             style="@style/Widget.MaterialComponents.Button"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:layout_height="200dp"
             android:layout_weight="1"
             android:minWidth="@dimen/m3_btn_min_width"
             android:minHeight="@dimen/m3_btn_min_height"

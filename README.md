@@ -1,5 +1,7 @@
 # <h1>NovaIPTV</h1>
+<div>
 <h4>Only avaliable on Android </h4> <img width=auto height="20" alt="image" src="https://github.com/user-attachments/assets/739ad5c7-250b-4d11-b723-4aa083306150" />
+</div>
 (Other platforms coming out later on) 
 
 NovaIPTV is an IPTV-style platform that lets you log in and enjoy a customizable streaming experience. It combines live content, trailers, sports integration, and personalization features all in one place.

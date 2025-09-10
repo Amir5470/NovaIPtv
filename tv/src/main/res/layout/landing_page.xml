@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LandingActivity" />
+    tools:context=".LandingActivity"> <!-- Make sure this closing tag is at the very end -->
 
     <!-- Header with Navbar -->
     <androidx.appcompat.widget.Toolbar
@@ -17,14 +17,20 @@
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent" >
 
+        <!-- TextView moved inside the Toolbar. You might want to adjust its layout attributes
+             depending on where you want it to appear within the Toolbar.
+             For example, to center it: -->
         <TextView
-    android:id="@+id/titleTextView"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_gravity="center"
-    android:text="Nova IPtv" />
+            android:id="@+id/titleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Nova IPtv"
+            android:textColor="@android:color/white"   تعدیل: Changed to white for better visibility on a dark toolbar
+            android:textSize="20sp" /> تعدیل: Added textSize for better appearance
+    </androidx.appcompat.widget.Toolbar>
 
     <!-- Body with 3 Large Buttons -->
     <LinearLayout
@@ -167,7 +173,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/overlay_sample_text"
-                    android:textColor="?attr/colorOnSurface" 
+                    android:textColor="?attr/colorOnSurface"
                     android:textSize="22sp"
                     android:layout_marginBottom="24dp"/>
 
@@ -175,7 +181,7 @@
                     android:id="@+id/overlay_close_button"
                     style="@style/Widget.MaterialComponents.Button"
                     android:layout_width="wrap_content"
-                    android:layout_height="@dimen/m3_btn_min_height" 
+                    android:layout_height="@dimen/m3_btn_min_height"
                     android:minWidth="@dimen/m3_btn_min_width"
                     android:minHeight="@dimen/m3_btn_min_height"
                     android:text="@string/overlay_close_button_text"/>
@@ -185,4 +191,4 @@
 
     </FrameLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>  <!-- This is the single closing root tag -->

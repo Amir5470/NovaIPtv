@@ -61,16 +61,34 @@ class LandingActivity : AppCompatActivity() {
      * skipping a specific view (e.g., the overlay itself).
      */
     private fun setChildrenFocusable(parent: ViewGroup, focusable: Boolean, skipView: View?) {
-        for (i in 0 until parent.childCount) {
-            val child = parent.getChildAt(i)
-            if (child == skipView) { // Don't disable the overlay itself
-                continue
+    for (i in 0 until parent.childCount) {
+        val child = parent.getChildAt(i)
+
+        if (child == skipView) { // Don't modify the overlay container itself when it's being skipped
+            // If we are enabling focus (overlay hidden), ensure overlay is NOT focusable
+            if (focusable) { // This means we are HIDING the overlay
+                child.isFocusable = false
+                child.isEnabled = false // Also disable it to prevent clicks
             }
+            continue
+        }
+
+        // Set focusable and enabled for the current child
+        child.isFocusable = focusable
+        child.isEnabled = focusable
+
+        // If the child is a Button, ensure it's specifically handled (though the above should cover it)
+        // This is more for emphasis and debugging, the generic child.isFocusable should work.
+        if (child is Button) {
             child.isFocusable = focusable
-            child.isEnabled = focusable // Often good to disable them too
-            if (child is ViewGroup) {
-                setChildrenFocusable(child, focusable, skipView) // Recurse for nested ViewGroups
-            }
+            child.isEnabled = focusable
+        }
+        
+        // If the child is also a ViewGroup, recurse
+        if (child is ViewGroup) {
+            // When we are disabling focus (overlay shown), we don't need to skip the overlay's children.
+            // When we are enabling focus (overlay hidden), the skipView is the overlay, so its children are not processed here.
+            setChildrenFocusable(child, focusable, null) // Pass null for skipView in recursion for children
         }
     }
 }
